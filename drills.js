@@ -51,7 +51,7 @@ class LinkedList {
     }
 
     //inserts a new node after a node containing the key
-    insertAfter(item, afterItem){
+    insertAfter(value, itemToInsert){  
         //find the item after which you want to insert
         //create node
         //keep track of node after it
@@ -60,16 +60,16 @@ class LinkedList {
             return null;
         }
         let currNode = this.head;
-        let afterNode = this.head.next;
-        while((currNode !== null) && (currNode !== afterNode)) {
-            afterNode = currNode;
+        while((currNode !== null) && (value !== currNode.value)) { //cant look in wrong place and not value we want(not found what we want so we can move on)
             currNode = currNode.next;
         }
-            afterNode.next = new _Node(item, currNode)
+            currNode.next = new _Node(itemToInsert, currNode.next) //creating spot for item to insert to be placed
     }
+
+    //[bird, dog], cat  
     insertAt(position, item){
         if(!this.head === null) {
-        this.insertFirst(item);
+            this.insertFirst(item);
         } else {
             let currNode = this.head;
             let targetNode = this.head;
@@ -260,3 +260,27 @@ function WhatDoesThisProgramDo(lst){
 // O(n^2) - Polynomial time
 // this function runs a loop within a loop. goes to the head of the linked list
 // and places new value   
+
+//Reverse a list
+//Linear algo for reverse linked list
+function reverseList(lst) {
+    let result = null;
+    let stack = null;
+    let current = lst.head;
+    while(current) {
+        stack.push(current)
+        current = current.next;
+    }     
+    // Set head to end of list.
+    result = stack.pop() || [];
+    current = result;
+    
+    while (current) {
+        current.next = stack.pop();
+        current = current.next;
+    }
+
+    return result;
+};
+
+}
