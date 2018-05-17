@@ -1,3 +1,5 @@
+'use strict';
+
 class _Node {
     constructor(value, next) {
         this.value=value;
@@ -14,17 +16,54 @@ class LinkedList {
         this.head = new _Node(item, this.head);
     }
 
+    insertBefore(beforeItem, newItem){
+        if(!this.head) {
+            return null;
+        }
+
+        if(this.head.value === beforeItem) {
+            this.insertFirst(item)
+            return
+        } else {
+            let currNode = this.head;
+            let previousNode = this.head;
+            while ((currNode !== null)&& (currNode.value!==beforeItem)){
+                previousNode = currNode;
+                currNode = currNode.next;
+            }
+            if(currNode.value === beforeItem) {
+                previousNode.next = new _Node(newItem, currNode)
+            } else if (currNode === null) {
+                console.log(`${beforeItem} is not found`)
+            }
+        
+        } 
+        
+        
+
+    }
+
+    insertAfter(){
+        //find the item after which you want ot insert
+        //create node
+        //keep track of node after it
+        //new node tracker will point to that
+        
+    }
+    insertAt(){
+
+    }
+
     insertLast(item){
-            if(this.head === null){
-                this.insertFirst(item);
+        if(this.head === null){
+            this.insertFirst(item);
+        } else {
+            let tempNode = this.head;
+            while(tempNode.next !== null){
+                tempNode = tempNode.next;
             }
-            else{
-                let tempNode = this.head;
-                while(tempNode.next !== null){
-                    tempNode = tempNode.next;
-                }
-                tempNode.next = new _Node(item, null);
-            }
+            tempNode.next = new _Node(item, null);
+        }
     }
 
     remove(item) {
@@ -70,15 +109,20 @@ function main(){
         SSL.insertFirst('Apollo');
         SSL.insertFirst('Boomer');
         SSL.insertFirst('Helo');
-        SSL.insertFirst('Husker');
-        SSL.insertFirst('Starbuck');
-        SSL.insertFirst('Tauhida');
-        SSL.remove('squirrel');
-    // console.log(SSL)
+        // SSL.insertFirst('Husker');
+        // SSL.insertFirst('Starbuck');
+        // SSL.insertFirst('Tauhida');
+        // SSL.remove('squirrel');
+        SSL.insertBefore('Boomer', 'Mike')
+    console.log(SSL)
 }
 
-function insertBefore(){
-    
+function display(){
+
+}
+
+function size(){
+
 }
 
 main()
