@@ -20,34 +20,48 @@ class LinkedList {
         if(!this.head) {
             return null;
         }
-
         if(this.head.value === beforeItem) {
             this.insertFirst(item)
             return
-        } else {
-            let currNode = this.head;
-            let previousNode = this.head;
-            while ((currNode !== null)&& (currNode.value!==beforeItem)){
-                previousNode = currNode;
-                currNode = currNode.next;
-            }
-            if(currNode.value === beforeItem) {
-                previousNode.next = new _Node(newItem, currNode)
-            } else if (currNode === null) {
-                console.log(`${beforeItem} is not found`)
-            }
-        
-        } 
-        
-        
-
+        // } else {
+        //     let currNode = this.head;
+        //     let previousNode = this.head;
+        //     while ((currNode !== null) && (currNode.value!==beforeItem)){
+        //         previousNode = currNode;
+        //         currNode = currNode.next;
+        //     }
+        //     if(currNode.value === beforeItem) {
+        //         previousNode.next = new _Node(newItem, currNode)
+        //     } else if (currNode === null) {
+        //         console.log(`${beforeItem} is not found`)
+        //     }
+        // } 
+        }
+        let currNode = this.head;
+        let previousNode = this.head;
+        while(currNode.value != beforeItem) {
+            previousNode = currNode;
+            currNode = currNode.next;
+        }
+        if(currNode.value == beforeItem) {
+            previousNode.next = new _Node(newItem, currNode)
+        } else if (currNode === null) {
+            console.log(`${beforeItem} is not found`)
+        }
     }
 
-    insertAfter(){
+    //inserts a new node after a node containing the key
+    insertAfter(newItem, afterItem){
         //find the item after which you want ot insert
         //create node
         //keep track of node after it
         //new node tracker will point to that
+        if(!this.head){
+            return null;
+        }
+
+
+
         
     }
     insertAt(){
@@ -113,7 +127,7 @@ function main(){
         // SSL.insertFirst('Starbuck');
         // SSL.insertFirst('Tauhida');
         // SSL.remove('squirrel');
-        SSL.insertBefore('Boomer', 'Mike')
+        SSL.insertBefore('Boomers', 'Mike')
     console.log(SSL)
 }
 
