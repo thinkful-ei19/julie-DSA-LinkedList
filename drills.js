@@ -165,7 +165,8 @@ function main(){
         // display(SSL);
         // size(SSL);
         // isEmpty(SSL);
-        findPrevious(SSL, 'Cat');
+        // findPrevious(SSL, 'Cat');
+        findLast(SSL)
     console.log(JSON.stringify(SSL))
 }
 //display the linked list
@@ -228,8 +229,13 @@ function findPrevious(list, item) {
 
 
 //returns the last node in the linked list
-function findLast(){
-
+function findLast(list){
+    let currentNode = list.head;
+    while(currentNode.next !== null) {
+        currentNode = currentNode.next;
+    }
+    console.log(currentNode.value);
+    return currentNode.value;
 }
 
 
