@@ -23,48 +23,51 @@ class LinkedList {
         if(this.head.value === beforeItem) {
             this.insertFirst(item)
             return
-        // } else {
-        //     let currNode = this.head;
-        //     let previousNode = this.head;
-        //     while ((currNode !== null) && (currNode.value!==beforeItem)){
-        //         previousNode = currNode;
-        //         currNode = currNode.next;
-        //     }
-        //     if(currNode.value === beforeItem) {
-        //         previousNode.next = new _Node(newItem, currNode)
-        //     } else if (currNode === null) {
-        //         console.log(`${beforeItem} is not found`)
-        //     }
-        // } 
-        }
-        let currNode = this.head;
-        let previousNode = this.head;
-        while(currNode.value != beforeItem) {
-            previousNode = currNode;
-            currNode = currNode.next;
-        }
-        if(currNode.value == beforeItem) {
-            previousNode.next = new _Node(newItem, currNode)
-        } else if (currNode === null) {
-            console.log(`${beforeItem} is not found`)
-        }
+        } else {
+            let currNode = this.head;
+            let previousNode = this.head;
+            while ((currNode !== null) && (currNode.value!==beforeItem)){
+                previousNode = currNode;
+                currNode = currNode.next;
+            }
+            if(currNode.value === beforeItem) {
+                previousNode.next = new _Node(newItem, currNode)
+            } else if (currNode === null) {
+                console.log(`${beforeItem} is not found`)
+            }
+        } 
+        // }
+        // let currNode = this.head;
+        // let previousNode = this.head;
+        // while(currNode.value != beforeItem) {
+        //     previousNode = currNode;
+        //     currNode = currNode.next;
+        // }
+        // if(currNode.value == beforeItem) {
+        //     previousNode.next = new _Node(newItem, currNode)
+        // } else if (currNode === null) {
+        //     console.log(`${beforeItem} is not found`)
+        // }
     }
 
     //inserts a new node after a node containing the key
-    insertAfter(newItem, afterItem){
-        //find the item after which you want ot insert
+    insertAfter(item, afterItem){
+        //find the item after which you want to insert
         //create node
         //keep track of node after it
         //new node tracker will point to that
         if(!this.head){
             return null;
         }
-
-
-
-        
+        let currNode = this.head;
+        let afterNode = this.head.next;
+        while((currNode !== null) && (currNode !== afterNode)) {
+            afterNode = currNode;
+            currNode = currNode.next;
+        }
+            afterNode.next = new _Node(item, currNode)
     }
-    insertAt(){
+    insertAt(item){
 
     }
 
@@ -127,8 +130,8 @@ function main(){
         // SSL.insertFirst('Starbuck');
         // SSL.insertFirst('Tauhida');
         // SSL.remove('squirrel');
-        SSL.insertBefore('Boomers', 'Mike')
-    console.log(SSL)
+        SSL.insertAfter('Jen', 'Boomer')
+    console.log(JSON.stringify(SSL))
 }
 
 function display(){
