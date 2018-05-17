@@ -174,10 +174,10 @@ function main(){
 main();
 
 
-function display(list){
-    let currentNode = list.head;
-    // if(list.head) {
-    //     console.log(list.head.value)
+function display(lst){
+    let currentNode = lst.head;
+    // if(lst.head) {
+    //     console.log(lst.head.value)
     // } else {
     //     console.log('Empty')
     // }
@@ -190,25 +190,25 @@ function display(list){
 
 
 
-//return size of the linked list
-function size(list){
-    let currentNode = list.head;
-    let listSize = 0;
+//return size of the linked lst
+function size(lst){
+    let currentNode = lst.head;
+    let lstSize = 0;
     if(currentNode) {
-        listSize = 1;
+        lstSize = 1;
     }
     while (currentNode.next !== null) {
         currentNode = currentNode.next;
-        listSize++;
+        lstSize++;
     }
-    console.log(listSize);
-    return listSize;
+    console.log(lstSize);
+    return lstSize;
 }
 
 
-// finds if list is empty or not without using size of function
-function isEmpty(list){
-    let currentNode = list.head;
+// finds if lst is empty or not without using size of function
+function isEmpty(lst){
+    let currentNode = lst.head;
     if(!currentNode) {
         return "Empty";
     }
@@ -216,9 +216,9 @@ function isEmpty(list){
 
 
 //find node before the item you are looking for
-function findPrevious(list, item) {
-    let currentNode = list.head;
-    let previousNode = list.head;
+function findPrevious(lst, item) {
+    let currentNode = lst.head;
+    let previousNode = lst.head;
     while ((currentNode !== null) && (currentNode.value!==item)){
         previousNode = currentNode;
         currentNode = currentNode.next;
@@ -228,9 +228,9 @@ function findPrevious(list, item) {
 }
 
 
-//returns the last node in the linked list
-function findLast(list){
-    let currentNode = list.head;
+//returns the last node in the linked lst
+function findLast(lst){
+    let currentNode = lst.head;
     while(currentNode.next !== null) {
         currentNode = currentNode.next;
     }
@@ -240,3 +240,23 @@ function findLast(list){
 
 
 
+//Mystery Program
+//What is the problem trying to solve? What is the runtime of this algorithm?
+function WhatDoesThisProgramDo(lst){
+    let current = lst.head;
+    while(current !== null){
+        let newNode = current;
+        while (newNode.next !== null) {
+            if (newNode.next.value === current.value) {
+                newNode.next = newNode.next.next;
+            }
+            else{
+                newNode = newNode.next;
+            }
+        }
+        current = current.next;
+    }
+}
+// O(n^2) - Polynomial time
+// this function runs a loop within a loop. goes to the head of the linked list
+// and places new value   
