@@ -16,7 +16,7 @@ class LinkedList {
         this.head = new _Node(item, this.head);
     }
 
-    insertBefore(beforeItem, newItem){
+    insertBefore(newItem, beforeItem){
         if(!this.head) {
             return null;
         }
@@ -67,9 +67,35 @@ class LinkedList {
         }
             afterNode.next = new _Node(item, currNode)
     }
-    insertAt(item){
+    insertAt(position, item){
+        if(!this.head === null) {
+        this.insertFirst(item);
+        } else {
+            let currNode = this.head;
+            let targetNode = this.head;
+            let address = 0;
 
+        // while ((currNode !== null) && (currNode.value!== targetNode)) {
+        //     targetNode = currNode;
+        //     currNode = currNode.next;
+        // }
+            while (address !== position) {
+                targetNode = currNode;
+                currNode = currNode.next;
+                address++;
+            }    
+        // if(currNode === null) {
+        //     console.log('Item not found')
+        // }
+
+        let insertItem = new _Node(item)
+        // this.insertBefore(item, targetNode)
+        targetNode.next = insertItem;
+        insertItem.next = currNode;
+        //just changing index value
+        }
     }
+
 
     insertLast(item){
         if(this.head === null){
@@ -126,11 +152,15 @@ function main(){
         SSL.insertFirst('Apollo');
         SSL.insertFirst('Boomer');
         SSL.insertFirst('Helo');
+        SSL.insertFirst('Tauhida');
         // SSL.insertFirst('Husker');
         // SSL.insertFirst('Starbuck');
-        // SSL.insertFirst('Tauhida');
         // SSL.remove('squirrel');
-        SSL.insertAfter('Jen', 'Boomer')
+        // SSL.insertBefore('Athena', 'Boomer')
+        // SSL.insertAfter('Hotdog', 'Helo')
+        // SSL.insertAfter('Jen', 'Boomer')
+        SSL.insertAt(3, 'Cat')
+        SSL.remove('Tauhida');
     console.log(JSON.stringify(SSL))
 }
 
