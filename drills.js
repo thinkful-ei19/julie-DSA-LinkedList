@@ -162,35 +162,65 @@ function main(){
         // SSL.insertAfter('Jen', 'Boomer')
         SSL.insertAt(3, 'Cat')
         SSL.remove('Tauhida');
+        display(SSL)
+        size(SSL)
     console.log(JSON.stringify(SSL))
 }
-
 //display the linked list
+
+main();
+
+
 function display(list){
-    return JSON.stringify(SSL)
+    let currentNode = list.head;
+    // if(list.head) {
+
+
+    //     console.log(list.head.value)
+    // } else {
+    //     console.log('Empty')
+    // }
+    while(currentNode !== null) {
+        console.log(currentNode.value)
+        currentNode = currentNode.next;
+    }
 }
+
+
+
 
 //return size of the linked list
 function size(list){
+    let currentNode = list.head;
+    let listSize = 0;
+    // if(list.head) {
 
+    // }
+    while (currentNode.next !== null) {
+        currentNode = currentNode.next;
+        listSize++;
+    }
+    console.log(listSize);
+    return listSize;
 }
 
 
 //finds if list is empty or not without using size of function
-function isEmpty(list){
+// function isEmpty(list){
 
-}
-
-
-//find node before the item you are looking for
-function findPrevious() {
-
-}
+// }
 
 
-//returns the last node in the linked list
-function findLast(){
+// //find node before the item you are looking for
+// function findPrevious() {
 
-}
+// }
 
-main()
+
+// //returns the last node in the linked list
+// function findLast(){
+
+// }
+
+
+
