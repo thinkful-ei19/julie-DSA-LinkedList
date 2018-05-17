@@ -174,8 +174,6 @@ main();
 function display(list){
     let currentNode = list.head;
     // if(list.head) {
-
-
     //     console.log(list.head.value)
     // } else {
     //     console.log('Empty')
@@ -193,9 +191,9 @@ function display(list){
 function size(list){
     let currentNode = list.head;
     let listSize = 0;
-    // if(list.head) {
-
-    // }
+    if(currentNode) {
+        listSize = 1;
+    }
     while (currentNode.next !== null) {
         currentNode = currentNode.next;
         listSize++;
@@ -205,16 +203,19 @@ function size(list){
 }
 
 
-//finds if list is empty or not without using size of function
-// function isEmpty(list){
+// finds if list is empty or not without using size of function
+function isEmpty(list){
+    let currentNode = list.head;
+    if(!currentNode) {
+        return "Empty";
+    }
+}
 
-// }
 
+//find node before the item you are looking for
+function findPrevious() {
 
-// //find node before the item you are looking for
-// function findPrevious() {
-
-// }
+}
 
 
 // //returns the last node in the linked list
