@@ -160,10 +160,12 @@ function main(){
         // SSL.insertBefore('Athena', 'Boomer')
         // SSL.insertAfter('Hotdog', 'Helo')
         // SSL.insertAfter('Jen', 'Boomer')
-        SSL.insertAt(3, 'Cat')
+        SSL.insertAt(3, 'Cat');
         SSL.remove('Tauhida');
-        display(SSL)
-        size(SSL)
+        // display(SSL);
+        // size(SSL);
+        // isEmpty(SSL);
+        findPrevious(SSL, 'Cat');
     console.log(JSON.stringify(SSL))
 }
 //display the linked list
@@ -213,15 +215,22 @@ function isEmpty(list){
 
 
 //find node before the item you are looking for
-function findPrevious() {
-
+function findPrevious(list, item) {
+    let currentNode = list.head;
+    let previousNode = list.head;
+    while ((currentNode !== null) && (currentNode.value!==item)){
+        previousNode = currentNode;
+        currentNode = currentNode.next;
+    }
+    console.log(previousNode.value);
+    return previousNode.value;
 }
 
 
-// //returns the last node in the linked list
-// function findLast(){
+//returns the last node in the linked list
+function findLast(){
 
-// }
+}
 
 
 
