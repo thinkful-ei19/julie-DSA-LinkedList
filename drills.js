@@ -84,6 +84,7 @@ class LinkedList {
                 currNode = currNode.next;
                 address++;
             }    
+        
         // if(currNode === null) {
         //     console.log('Item not found')
         // }
@@ -164,11 +165,31 @@ function main(){
     console.log(JSON.stringify(SSL))
 }
 
-function display(){
+//display the linked list
+function display(list){
+    return JSON.stringify(SSL)
+}
+
+//return size of the linked list
+function size(list){
 
 }
 
-function size(){
+
+//finds if list is empty or not without using size of function
+function isEmpty(list){
+
+}
+
+
+//find node before the item you are looking for
+function findPrevious() {
+
+}
+
+
+//returns the last node in the linked list
+function findLast(){
 
 }
 
